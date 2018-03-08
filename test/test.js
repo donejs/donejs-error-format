@@ -9,8 +9,6 @@ describe('Errors with codeFrame', function(){
 		let parts = extract(fourOhFourError);
 		let html = formatHTML(parts);
 
-		require("fs").writeFileSync(process.cwd()+"/error.html", html, "utf8");
-
-		//console.log(html);
+		assert.ok(html, "got some html");
 	});
 });
