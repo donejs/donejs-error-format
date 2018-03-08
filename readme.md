@@ -1,6 +1,11 @@
 # donejs-error-format
 
+[![Build Status](https://travis-ci.org/donejs/donejs-error-format.svg?branch=master)](https://travis-ci.org/donejs/donejs-error-format)
+[![npm version](https://badge.fury.io/js/donejs-error-format.svg)](http://badge.fury.io/js/donejs-error-format)
+
 An error formatter for Errors that are emitted by [done-ssr](https://github.com/donejs/done-ssr).
+
+<img src="https://user-images.githubusercontent.com/361671/37160048-4c2f266c-22bd-11e8-885d-687bb6428860.png" alt="donejs-error-format example" style="max-width:100%;">
 
 # Install
 
