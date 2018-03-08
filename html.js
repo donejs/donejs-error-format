@@ -20,7 +20,7 @@ function template(e) {
   </header>
   <div class="error-message">
     <div class="message">
-      ${e.message}
+      ${addLinks(e.message)}
     </div>
 	${e.codeFrame ? `
 	  <pre class="code-frame"><code class="hljs javascript">${formatCode(e.codeFrame)}</code></pre>
@@ -35,18 +35,32 @@ function template(e) {
   `.trim();
 }
 
-const numberExp = /^>? +[0-9]+ \| /g;
-
+const numberExp = /^>? +[0-9]+ \| /gm;
+const replExp = /<span class="hljs-comment">\/\*DONEFORMAT\*\/<\/span>/g;
 function formatCode(inCode) {
 	const hljs = require("highlight.js");
-	let code = inCode;
-	/*code = inCode.replace(numberExp, function(){
-		return "DONEFORMAT";
-	});*/
 
-	// TODO strip the 5 | parts
+	// strip the 5 | parts temporarily and plug in a comment.
+	let lineParts = [];
+	let code = inCode.replace(numberExp, function(p){
+		lineParts.push(p);
+		return "/*DONEFORMAT*/";
+	});
+
 	let out = hljs.highlightAuto(code).value;
 
+	let final = out.replace(replExp, function (p){
+		return `<span>${lineParts.shift()}</span>`;
+	});
+
+	return final;
+}
+
+const urlExp = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
+function addLinks(text) {
+	let out = text.replace(urlExp, function(url){
+		return `<a href="${url}">${url}</a>`;
+	});
 	return out;
 }
 

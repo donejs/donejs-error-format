@@ -44,18 +44,18 @@ header h1 {
     <div class="message">
       The module [break-donejs/not-exists] couldn't be fetched.
 Clicking the link in the stack trace below takes you to the import.
-See https://stealjs.com/docs/StealJS.error-messages.html#404-not-found for more information.
+See <a href="https://stealjs.com/docs/StealJS.error-messages.html#404-not-found">https://stealjs.com/docs/StealJS.error-messages.html#404-not-found</a> for more information.
 
 
     </div>
 	
-	  <pre class="code-frame"><code class="hljs javascript">  <span class="hljs-number">4</span> | <span class="hljs-type">import</span> 'can-debug#?./is-dev';
-  <span class="hljs-number">5</span> | <span class="hljs-type">import</span> './cjs-module';
-&gt; <span class="hljs-number">6</span> | <span class="hljs-type">import</span> './not-<span class="hljs-built_in">exists</span>';
-    |       <span class="hljs-type">^
-  7</span> |
-  <span class="hljs-type">8</span> | <span class="hljs-type">const</span> AppViewModel = DefineMap.extend({
-  <span class="hljs-number">9</span> |   <span class="hljs-type">env</span>: {</code></pre>
+	  <pre class="code-frame"><code class="hljs javascript"><span>  4 | </span><span class="hljs-keyword">import</span> 'can-debug#?./<span class="hljs-keyword">is</span>-dev';
+<span>  5 | </span><span class="hljs-keyword">import</span> './cjs-module';
+<span>> 6 | </span><span class="hljs-keyword">import</span> './<span class="hljs-built_in">not</span>-exists';
+    |       ^
+  <span class="hljs-number">7</span> |
+<span>  8 | </span>const AppViewModel = DefineMap.extend({
+<span>  9 | </span>  env: {</code></pre>
 	
   </div>
   

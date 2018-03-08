@@ -1,7 +1,8 @@
 
-function format(text) {
-  // TODO having done this one yet.
-  return text;
+function format(parts) {
+	// TODO having done this one yet.
+	let out = `${parts.headline}\n${parts.message}\n${parts.codeFrame}\n${parts.stack}`;
+	return out;
 }
 
 module.exports = format;
