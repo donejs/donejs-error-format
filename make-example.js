@@ -2,10 +2,12 @@ const assert = require('assert');
 const {extract, html: formatHTML} = require('./main');
 const fs = require("fs");
 
-// Fixtures
-var fourOhFourError = require('./test/fixtures/404');
+// Fixture
+var error = require('./test/fixtures/stack');
 
-let parts = extract(fourOhFourError);
+debugger;
+
+let parts = extract(error);
 let html = formatHTML(parts);
 
 fs.writeFileSync(__dirname + "/example/error.html", html, "utf8");

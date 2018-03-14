@@ -10,7 +10,7 @@ exports.term = require("./term");
 
 
 const cfExp = /^>? +[0-9]+ \| /gm;
-const stExp = /^ +at \(/gm;
+const stExp = /^ +at .*?\(?/gm;
 function extractParts(error) {
 	let text = error.stack || error;
 	let parts = {};

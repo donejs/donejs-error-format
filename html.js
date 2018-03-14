@@ -3,6 +3,7 @@ module.exports = formatHTML;
 function template(e) {
 	const load = require("./lazy-load");
 	const styles = load(__dirname + "/html.css");
+	let hasMessage = e.message && e.message.trim().length;
 
 	return `
 <!doctype html>
@@ -19,17 +20,18 @@ function template(e) {
     <h1>${e.headline || "Error compiling"}</h1>
   </header>
   <div class="error-message">
-    <div class="message">
-      ${addLinks(e.message)}
-    </div>
-	${e.codeFrame ? `
-	  <pre class="code-frame"><code class="hljs javascript">${formatCode(e.codeFrame)}</code></pre>
-	` : ''}
+  	${hasMessage ? `
+      <div class="message">
+       ${addLinks(e.message)}
+      </div>
+    ` : ''}
+
+    ${e.codeFrame ? `
+      <pre class="code-frame"><code class="hljs javascript">${formatCode(e.codeFrame)}</code></pre>
+    ` : ''}
   </div>
   ${e.stack ? `
-   <div class="stack-trace">
-     ${e.stack}
-   </div>
+   <div class="stack-trace"><pre>${e.stack}</pre></div>
   ` : ''}
 </main>
   `.trim();

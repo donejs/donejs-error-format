@@ -38,29 +38,25 @@ header h1 {
 
 <main>
   <header>
-    <h1>Error: ENOENT: no such file or directory, open '/Users/matthew/dev/break-donejs/src/not-exists.js'</h1>
+    <h1>Error: oops</h1>
   </header>
   <div class="error-message">
     <div class="message">
-      The module [break-donejs/not-exists] couldn't be fetched.
-Clicking the link in the stack trace below takes you to the import.
-See <a href="https://stealjs.com/docs/StealJS.error-messages.html#404-not-found">https://stealjs.com/docs/StealJS.error-messages.html#404-not-found</a> for more information.
-
+      
 
     </div>
 	
-	  <pre class="code-frame"><code class="hljs javascript"><span>  4 | </span><span class="hljs-keyword">import</span> 'can-debug#?./<span class="hljs-keyword">is</span>-dev';
-<span>  5 | </span><span class="hljs-keyword">import</span> './cjs-module';
-<span>> 6 | </span><span class="hljs-keyword">import</span> './<span class="hljs-built_in">not</span>-exists';
-    |       ^
-  <span class="hljs-number">7</span> |
-<span>  8 | </span>const AppViewModel = DefineMap.extend({
-<span>  9 | </span>  env: {</code></pre>
-	
   </div>
   
-   <div class="stack-trace">
-         at (file:/Users/matthew/dev/break-donejs/src/app.js:6:7)
-   </div>
+   <div class="stack-trace"><pre>    at DefineMap.init (file:/Users/matthew/dev/break-donejs/src/app.js!eval:30:17)
+    at Function.newInstance (file:/Users/matthew/dev/break-donejs/node_modules/can-construct/can-construct.js:296:14)
+    at DefineMap.init (file:/Users/matthew/dev/break-donejs/node_modules/can-construct/can-construct.js:635:29)
+    at new DefineMap (eval at <anonymous> (evalmachine.<anonymous>:88:57), <anonymous>:3:32)
+    at createViewModelAndRender (file:/Users/matthew/dev/break-donejs/src/index.stache:420:19)
+    at /Users/matthew/dev/break-donejs/node_modules/done-ssr/zones/steal/load.js:67:9
+    at /Users/matthew/dev/break-donejs/node_modules/can-zone/lib/tasks.js:146:15
+    at Task.run (/Users/matthew/dev/break-donejs/node_modules/can-zone/lib/zone.js:38:17)
+    at Zone.runTask (/Users/matthew/dev/break-donejs/node_modules/can-zone/lib/zone.js:180:14)
+    at /Users/matthew/dev/break-donejs/node_modules/can-zone/lib/zone.js:281:15</pre></div>
   
 </main>
