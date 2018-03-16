@@ -5,7 +5,7 @@ const {extract, html: formatHTML} = require('../main');
 var fourOhFourError = require('./fixtures/404');
 var stackError = require('./fixtures/stack');
 
-describe.only('HTML options', function(){
+describe('HTML options', function(){
 	describe('liveReload', function(){
 		it('liveReload: null', function(){
 			let parts = extract(fourOhFourError);
