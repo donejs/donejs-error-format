@@ -1,8 +1,9 @@
 module.exports = formatHTML;
 
-function template(e) {
+function template(e, options) {
 	const load = require("./lazy-load");
 	const styles = load(__dirname + "/html.css");
+	const liveReloadScript = require("./live-reload.js");
 	let hasMessage = e.message && e.message.trim().length;
 
 	return `
@@ -33,6 +34,10 @@ function template(e) {
   ${e.stack ? `
    <div class="stack-trace"><pre>${e.stack}</pre></div>
   ` : ''}
+  ${options.liveReload ? `
+	  <script id="live-reload">${liveReloadScript(options.liveReload)}</script>
+  `: ''}
+
 </main>
   `.trim();
 }
@@ -66,6 +71,16 @@ function addLinks(text) {
 	return out;
 }
 
-function formatHTML(parts){
-	return template(parts);
+function formatHTML(parts, options){
+	let opts = {};
+	if(options) {
+		opts = Object.assign({}, options, {
+			liveReload: options.liveReload === true ?
+				{
+					port: 8012
+				} : options.liveReload
+		})
+	}
+
+	return template(parts, opts);
 }
