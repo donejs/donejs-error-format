@@ -1,7 +1,7 @@
 # donejs-error-format
 
 [![Build Status](https://travis-ci.org/donejs/donejs-error-format.svg?branch=master)](https://travis-ci.org/donejs/donejs-error-format)
-[![npm version](https://badge.fury.io/js/donejs-error-format.svg)](http://badge.fury.io/js/donejs-error-format)
+[![npm version](https://badge.fury.io/js/donejs-error-format.svg)](http://badge.fury.io/js/donejs-error-format) [![Greenkeeper badge](https://badges.greenkeeper.io/donejs/donejs-error-format.svg)](https://greenkeeper.io/)
 
 An error formatter for Errors that are emitted by [done-ssr](https://github.com/donejs/done-ssr).
 
